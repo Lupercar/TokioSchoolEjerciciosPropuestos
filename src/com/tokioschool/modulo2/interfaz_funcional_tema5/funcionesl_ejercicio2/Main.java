@@ -21,6 +21,10 @@ public class Main {
 		System.out.println("\nUsing Function lambda getName with Dog object:");
 		Function<Dog, String> getName = element -> element.getName();
 		dogs.forEach( dog -> System.out.print(getName.apply(dog) + " "));
+		
+		System.out.println("\nUsing Function lambda getInitial with String");
+		Function<String, Character> getInitial = element -> element.charAt(0);
+		dogs.forEach( dog -> System.out.print(getInitial.apply(dog.getName()) + " "));
 	}
 
 }
