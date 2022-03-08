@@ -3,6 +3,7 @@ package com.tokioschool.modulo2.interfaces_lambda_predefinidas_tema6.zoo;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -15,7 +16,18 @@ public class Main {
 
 		Animal[] array = { perro1, perro2, caballo, oso };
 		List<Animal> animals = new ArrayList<>(Arrays.asList(array));
-		animals.forEach(System.out::println);
+		
+//		Elimina todos los animales peligrosos
+		System.out.println("Animales Origen son peligrosos?:");
+		animals.forEach(animal -> System.out.println(animal.getNombre() + ", peligroso?: " + animal.isPeligroso()));
+		
+		System.out.println("\nElimino animales peligrosos: ");
+		List<Animal> animalesNoPeligrosos = animals.stream()
+				.filter(animal -> !animal.isPeligroso())
+				.peek(animal -> System.out.print(" " + animal.getNombre() + ", peligroso?: " + animal.isPeligroso() + "\n"))
+				.collect(Collectors.toList());
+		
+
 	}
 
 }
