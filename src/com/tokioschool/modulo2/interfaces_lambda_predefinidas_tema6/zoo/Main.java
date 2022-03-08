@@ -27,7 +27,12 @@ public class Main {
 				.peek(animal -> System.out.print(" " + animal.getNombre() + ", peligroso?: " + animal.isPeligroso() + "\n"))
 				.collect(Collectors.toList());
 		
-
+		
+//		Lista todos los nombres de los animales
+		List<String> animalsNombres = animals.stream()
+				.map(Animal::getNombre)
+				.collect(Collectors.toList());
+		System.out.print("\n\nNombre de todos los animales " + animalsNombres);
 	}
 
 }
