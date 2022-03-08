@@ -33,6 +33,17 @@ public class Main {
 				.map(Animal::getNombre)
 				.collect(Collectors.toList());
 		System.out.print("\n\nNombre de todos los animales " + animalsNombres);
+		
+//		Poner 10 Kg de comida a cada animal
+//		https://stackify.com/streams-guide-java-8/
+		System.out.println("\n\nKg comida animales Original:");
+		animals.forEach(animal -> System.out.println(animal.getNombre() + ", cantidad_comida= " + animal.getCantidadComida()));
+		
+		System.out.println("\nKg comida animales add 10kg:");
+		List<Animal> poner10KgComida = animals.stream()
+				.peek(animal -> animal.alimentar(10.0))
+				.peek(animal -> System.out.println(animal.getNombre() + ", cantidad_comida= " + animal.getCantidadComida()))
+				.collect(Collectors.toList());
 	}
 
 }
