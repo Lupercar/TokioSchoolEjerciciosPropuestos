@@ -25,6 +25,13 @@ public class Main {
 		System.out.println("\nUsing Function lambda getInitial with String");
 		Function<String, Character> getInitial = element -> element.charAt(0);
 		dogs.forEach( dog -> System.out.print(getInitial.apply(dog.getName()) + " "));
+		
+//	    http://tutorials.jenkov.com/java-functional-programming/functional-composition.html#predicate-composition
+		System.out.println("\nUsing Function lambda andThen()");
+		Function<Dog, Character> getNameThenGetInitial = getName.andThen(getInitial);
+		System.out.println(getName.andThen(getInitial).apply(boi));
+		System.out.println(getNameThenGetInitial.apply(tyri));
+		System.out.println(getNameThenGetInitial.apply(charis));
 	}
 
 }
