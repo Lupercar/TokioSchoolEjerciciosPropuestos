@@ -1,5 +1,10 @@
 package com.tokioschool.modulo2.interfaz_funcional_tema5.funcionesl_ejercicio2;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Function;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -9,6 +14,13 @@ public class Main {
 		Dog charis = new Dog("charis", 120, 7);
 
 		System.out.println(boi);
+		
+		Dog [] array = {boi,tyri,charis};
+		List<Dog> dogs = new ArrayList<>(Arrays.asList(array));
+		
+		System.out.println("\nUsing Function lambda getName with Dog object:");
+		Function<Dog, String> getName = element -> element.getName();
+		dogs.forEach( dog -> System.out.print(getName.apply(dog) + " "));
 	}
 
 }
