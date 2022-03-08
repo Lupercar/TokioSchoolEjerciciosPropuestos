@@ -32,6 +32,11 @@ public class Main {
 		System.out.println(getName.andThen(getInitial).apply(boi));
 		System.out.println(getNameThenGetInitial.apply(tyri));
 		System.out.println(getNameThenGetInitial.apply(charis));
+		
+		System.out.println("\nUsing Function lambda compose()");
+		System.out.println(getInitial.compose(getName).apply(boi));
+		System.out.println(getInitial.compose(getName).apply(tyri));
+		System.out.println(getInitial.compose(getName).apply(charis));
 	}
 
 }
