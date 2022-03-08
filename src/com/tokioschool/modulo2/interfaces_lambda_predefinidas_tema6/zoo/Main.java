@@ -44,6 +44,16 @@ public class Main {
 				.peek(animal -> animal.alimentar(10.0))
 				.peek(animal -> System.out.println(animal.getNombre() + ", cantidad_comida= " + animal.getCantidadComida()))
 				.collect(Collectors.toList());
+		
+//		Elimina todos los animales que pesen menos de 10 kilos
+		System.out.println("\n\nKg peso animales Original:");
+		animals.forEach(animal -> System.out.println(animal.getNombre() + ", peso: " + animal.getPeso()));
+		
+		System.out.println("\nElimino animales que pesen menos de 10 kg");
+		List<Animal> eliminaAnimalesPesoMenor10Kg =	animals.stream()
+				.filter(animal -> animal.getPeso() >= 10)
+				.peek(animal -> System.out.println(animal.getNombre() + ", peso: " + animal.getPeso()))
+				.collect(Collectors.toList());
 	}
 
 }
