@@ -1,5 +1,7 @@
 package com.tokioschool.modulo2.interfaz_funcional_tema5.lambda_ejercicio1;
 
+import java.util.function.Function;
+
 public class Main {
 
 	public static void main(String[] args) {
@@ -10,7 +12,8 @@ public class Main {
 	}
 
 	private static int factorial(int number) {
-		return 0;
+		Function<Integer, Integer> function = element -> (element==0) ? 1 : element * factorial(number - 1);
+		return function.apply(number);
 	}
 
 }
