@@ -1,18 +1,22 @@
 package com.tokioschool.modulo2.stream_lambda_y_referencia_a_metodos_tema7.ciudades;
 
-public class Ciudades {
+public class Ciudad {
 
 	private String nombre;
 	private String provincia;
 	private int habitantes;
 
-	private Ciudades(String nombre, String provincia, int habitantes) {
+	private Ciudad(String nombre, String provincia, int habitantes) {
 		this.nombre = nombre;
 		this.provincia = provincia;
 		this.habitantes = habitantes;
 	}
+	
+	public static Ciudad of(String nombre, String provincia, int habitantes) {
+		return new Ciudad(nombre, provincia, habitantes);
+	}
 
-	private Ciudades() {
+	private Ciudad() {
 		this("", "", 0);
 	}
 
